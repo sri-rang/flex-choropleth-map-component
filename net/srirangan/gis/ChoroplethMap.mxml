@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:TitleWindow 
+	xmlns:mx="http://www.adobe.com/2006/mxml" 
+	xmlns:visualization="org.zepint.visualization.*" 
+	layout="absolute"  
+	creationComplete="creationCompleteHandler()" 
+	borderStyle="solid" 
+	headerHeight="6" xmlns:gis="net.srirangan.gis.*">
+	
+	<mx:Script source="ChoroplethMapAs.as"/>
+	
+	<gis:Map id="map" 
+		width="100%" height="100%" 
+		dataProvider="{mapDataProvider}" 
+		coordsField="{coordsField}" 
+		gidField="{gidField}" 
+		scale="{mapScale}"/>
+	
+	<mx:HBox id="settingsContainer"
+		bottom="0" right="0" left="0" 
+		horizontalAlign="center" backgroundColor="#ffffff" backgroundAlpha="0.5">
+		<mx:CheckBox id="mapToolTipsInput" 
+			label="Tooltips" 
+			selected="true"/>
+		<mx:CheckBox id="activeLegendInput" 
+			label="Active legend" 
+			selected="false"/>
+	</mx:HBox>
+	
+	<mx:HBox id="toolTipContainer" 
+		horizontalScrollPolicy="off" verticalScrollPolicy="off"
+		visible="false"
+		paddingLeft="3" paddingRight="3" paddingTop="6" paddingBottom="6"
+		backgroundColor="#ffffff"
+		verticalAlign="middle" 
+		alpha="0.95">
+		<mx:Text id="toolTipText"/>
+	</mx:HBox>
+	
+	<mx:ControlBar width="100%" horizontalAlign="center">
+		<mx:Legend id="legend" markerHeight="12" markerWidth="12" horizontalGap="9"/>
+	</mx:ControlBar>
+	
+</mx:TitleWindow>
